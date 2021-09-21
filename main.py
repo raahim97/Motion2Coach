@@ -17,7 +17,7 @@ inHeight = args.height
 #
 cap = cv.VideoCapture(args.input if args.input else 0)
 # -----------------------------------------------------------------------------------------
-c#ap = cv.VideoCapture('C:/Users/RFaiz/OneDrive/Documents/GitHub/Motion2Coach/walking.mp4')
+#cap = cv.VideoCapture('C:/Users/RFaiz/OneDrive/Documents/GitHub/Motion2Coach/walking.mp4')
 # -----------------------------------------------------------------------------------------
 
 net = cv.dnn.readNetFromTensorflow("graph_opt.pb")
