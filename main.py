@@ -2,16 +2,25 @@
 # export LD_LIBRARY_PATH=/opt/intel/deeplearning_deploymenttoolkit/deployment_tools/external/mklml_lnx/lib:$LD_LIBRARY_PATH
 import cv2 as cv
 import numpy as np
+# -----------------------------------------------------------------------------------------
 import argparse
-
 parser = argparse.ArgumentParser()
 parser.add_argument('--input', help='Path to image or video. Skip to capture frames from camera')
 parser.add_argument('--thr', default=0.2, type=float, help='Threshold value for pose parts heat map')
 parser.add_argument('--width', default=368, type=int, help='Resize input to specific width.')
 parser.add_argument('--height', default=368, type=int, help='Resize input to specific height.')
-
+#
 args = parser.parse_args()
+#
+inWidth = args.width
+inHeight = args.height
+#
+# cap = cv.VideoCapture(args.input if args.input else 0)
+# -----------------------------------------------------------------------------------------
+cap = cv.VideoCapture('C:/Users/RFaiz/OneDrive/Documents/GitHub/Motion2Coach/walking.mp4')
+# -----------------------------------------------------------------------------------------
 
+net = cv.dnn.readNetFromTensorflow("graph_opt.pb")
 BODY_PARTS = {"Nose": 0, "Neck": 1, "RShoulder": 2, "RElbow": 3, "RWrist": 4,
               "LShoulder": 5, "LElbow": 6, "LWrist": 7, "RHip": 8, "RKnee": 9,
               "RAnkle": 10, "LHip": 11, "LKnee": 12, "LAnkle": 13, "REye": 14,
@@ -22,13 +31,6 @@ POSE_PAIRS = [["Neck", "RShoulder"], ["Neck", "LShoulder"], ["RShoulder", "RElbo
               ["Neck", "RHip"], ["RHip", "RKnee"], ["RKnee", "RAnkle"], ["Neck", "LHip"],
               ["LHip", "LKnee"], ["LKnee", "LAnkle"], ["Neck", "Nose"], ["Nose", "REye"],
               ["REye", "REar"], ["Nose", "LEye"], ["LEye", "LEar"]]
-
-inWidth = args.width
-inHeight = args.height
-
-net = cv.dnn.readNetFromTensorflow("graph_opt.pb")
-
-cap = cv.VideoCapture(args.input if args.input else 0)
 
 while cv.waitKey(1) < 0:
     hasFrame, frame = cap.read()
