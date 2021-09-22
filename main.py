@@ -29,8 +29,9 @@ while True:  # Infinite loop, read image every second to make it show like a vid
     pTime = cTime
     cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 0), 3)
+    #img = cv2.resize(img, (960, 540))
+    img = cv2.resize(img, (600, 600))
     cv2.imshow("Coordinates", img)
-    cv2.resizeWindow("Coordinates", 600, 600)
     cv2.waitKey(1)
 
     # Close window if user press on close button
