@@ -21,9 +21,4 @@ What code do:
 - After than it will show that image in loop in a windows tittled 'Coordinates'
 - It will check if windows 'Coordinates' is visible or not, if not, program will exit
 - It will check that to that if input, camera, video \stopped or input ended, it will print
-- At the end it will release the camera and distro windows 
-
-Contact Information:
-
-- RFaizanN@gmail.com
-- Skype: RFaizanN
+- At the end it will release the camera and distro windows
