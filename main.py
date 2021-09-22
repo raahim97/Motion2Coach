@@ -41,15 +41,14 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         print("-------------------------------------------------------------------")
         print("Right Shoulder")
         right = dict(enumerate(results.pose_landmarks.landmark))[12]
-        print(right)
+        print(right, type(right))
         print("-------------------------------------------------------------------")
         print("Left Shoulder")
         left = dict(enumerate(results.pose_landmarks.landmark))[11]
-        print(left)
+        print(left, type(left))
         print("-------------------------------------------------------------------")
-        distanceBTW = distance(right['x'], right['y'], right['z'], left['x'], left['y'],
-                               left['z'])  # Passing Coordinated
-        print("Distance between Left and Right Shoulder is :" + distanceBTW)
+        # distanceBTW = distance(right['x'], right['y'], right['z'], left['x'], left['y'],left['z'])  # Passing Coordinated
+        # print("Distance between Left and Right Shoulder is :" + distanceBTW)
         print("-------------------------------------------------------------------")
         print("###################################################################")
         for id, lm in enumerate(results.pose_landmarks.landmark):
@@ -62,14 +61,14 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         pTime = cTime
         cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
                     (255, 0, 0), 3)
-        # img = cv2.resize(img, (960, 540))
-        img = cv2.resize(img, (600, 600))
-        cv2.imshow("Coordinates", img)
-        cv2.waitKey(1)
+    # img = cv2.resize(img, (960, 540))
+    img = cv2.resize(img, (600, 600))
+    cv2.imshow("Coordinates", img)
+    cv2.waitKey(1)
 
-        # Close window if user press on close button
-        if cv2.getWindowProperty("Coordinates", cv2.WND_PROP_VISIBLE) < 1:
-            break
+    # Close window if user press on close button
+    if cv2.getWindowProperty("Coordinates", cv2.WND_PROP_VISIBLE) < 1:
+        break
 cv2.destroyAllWindows()
 cap.release()
 # ---------------------------------------------------------------------------------
