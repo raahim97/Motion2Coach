@@ -27,6 +27,11 @@ while True:
     pTime = cTime
     cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 0), 3)
-    cv2.imshow("Image", img)
+    cv2.imshow("Coordinates", img)
     cv2.waitKey(1)
+
+    # Close window if user press on close button
+    if cv2.getWindowProperty("Coordinates", cv2.WND_PROP_VISIBLE) < 1:
+        break
+cv2.destroyAllWindows()
 # ---------------------------------------------------------------------------------
