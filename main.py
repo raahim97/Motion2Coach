@@ -4,6 +4,7 @@ import mediapipe as mp
 import time
 
 # ---------------------------------------------------------------------------------
+
 mpDraw = mp.solutions.drawing_utils
 mpPose = mp.solutions.pose
 pose = mpPose.Pose()
@@ -29,6 +30,7 @@ while True:  # Infinite loop, read image every second to make it show like a vid
     cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
                 (255, 0, 0), 3)
     cv2.imshow("Coordinates", img)
+    cv2.resizeWindow("Coordinates", 600, 600)
     cv2.waitKey(1)
 
     # Close window if user press on close button
