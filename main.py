@@ -10,7 +10,7 @@ pose = mpPose.Pose()
 cap = cv2.VideoCapture('walking.mp4')
 pTime = 0
 # ---------------------------------------------------------------------------------
-while True:
+while True: # Infinite loop, read image every second to make it show like a video
     success, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     results = pose.process(imgRGB)
