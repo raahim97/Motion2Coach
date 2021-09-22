@@ -36,7 +36,7 @@ while True:  # Infinite loop, read image every second to make it show like a vid
     results = pose.process(imgRGB)
     # print(results.pose_landmarks)
     if results.pose_landmarks:
-        mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
+        # --------------------------------------------------------------------------
         print("###################################################################")
         print("-------------------------------------------------------------------")
         print("Right Shoulder")
@@ -52,6 +52,8 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         # print("Distance between Left and Right Shoulder is :" + distanceBTW)
         print("-------------------------------------------------------------------")
         print("###################################################################")
+        # --------------------------------------------------------------------------
+        mpDraw.draw_landmarks(img, results.pose_landmarks, mpPose.POSE_CONNECTIONS)
         for id, lm in enumerate(results.pose_landmarks.landmark):
             h, w, c = img.shape
         print(id, lm)
@@ -62,7 +64,9 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         pTime = cTime
         cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
                     (255, 0, 0), 3)
-    # img = cv2.resize(img, (960, 540))
+        # --------------------------------------------------------------------------
+
+    # Resize the images so it can fit in the screen (My laptop's screen)
     img = cv2.resize(img, (600, 600))
     cv2.imshow("Coordinates", img)
     cv2.waitKey(1)
@@ -70,6 +74,7 @@ while True:  # Infinite loop, read image every second to make it show like a vid
     # Close window if user press on close button
     if cv2.getWindowProperty("Coordinates", cv2.WND_PROP_VISIBLE) < 1:
         break
+# ---------------------------------------------------------------------------------
 cv2.destroyAllWindows()
 cap.release()
 # ---------------------------------------------------------------------------------
