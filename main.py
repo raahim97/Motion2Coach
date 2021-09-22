@@ -63,7 +63,7 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         fps = 1 / (cTime - pTime)
         pTime = cTime
         cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3,
-                    (255, 0, 0), 3)
+                    (255, 255, 255), 3)
         # --------------------------------------------------------------------------
 
     # Resize the images so it can fit in the screen (My laptop's screen)
@@ -73,6 +73,7 @@ while True:  # Infinite loop, read image every second to make it show like a vid
 
     # Close window if user press on close button
     if cv2.getWindowProperty("Coordinates", cv2.WND_PROP_VISIBLE) < 1:
+        print("Closed and Program terminated successfully")
         break
 # ---------------------------------------------------------------------------------
 cv2.destroyAllWindows()
