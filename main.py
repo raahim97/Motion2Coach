@@ -9,7 +9,7 @@ mpPose = mp.solutions.pose
 pose = mpPose.Pose()
 pTime = 0
 # ---------------------------------------------------------------------------------
-cap = cv2.VideoCapture('walking.mp4')
+cap = cv2.VideoCapture('walking.mp4')  # Processing on walking.mp4
 # ---------------------------------------------------------------------------------
 while True:  # Infinite loop, read image every second to make it show like a video
     success, img = cap.read()
