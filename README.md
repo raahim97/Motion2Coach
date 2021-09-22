@@ -22,3 +22,8 @@ What code do:
 - It will check if windows 'Coordinates' is visible or not, if not, program will exit
 - It will check that to that if input, camera, video \stopped or input ended, it will print
 - At the end it will release the camera and distro windows 
+
+Contact Information:
+
+- RFaizanN@gmail.com
+- Skype: RFaizanN
