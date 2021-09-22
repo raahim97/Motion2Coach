@@ -19,7 +19,7 @@ if cap is None or not cap.isOpened():  # Check if camera does not found
 
 
 # ---------------------------------------------------------------------------------
-def distance(x1, y1, z1, x2, y2, z2):
+def distance(x1, y1, z1, x2, y2, z2):  # Distance Formula
     return math.sqrt(math.pow(x2 - x1, 2) +
                      math.pow(y2 - y1, 2) +
                      math.pow(z2 - z1, 2) * 1.0)
@@ -47,7 +47,8 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         left = dict(enumerate(results.pose_landmarks.landmark))[11]
         print(left)
         print("-------------------------------------------------------------------")
-        distanceBTW = distance(right['x'], right['y'], right['z'], left['x'], left['y'], left['z'])
+        distanceBTW = distance(right['x'], right['y'], right['z'], left['x'], left['y'],
+                               left['z'])  # Passing Coordinated
         print("Distance between Left and Right Shoulder is :" + distanceBTW)
         print("-------------------------------------------------------------------")
         print("###################################################################")
