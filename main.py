@@ -13,6 +13,9 @@ pTime = 0
 # cap = cv2.VideoCapture('walking.mp4')  # Processing on walking.mp4
 cap = cv2.VideoCapture(0)  # Reading from Camera
 # ---------------------------------------------------------------------------------
+if cap is None or not cap.isOpened():
+    print("No Camera found")
+    exit()
 while True:  # Infinite loop, read image every second to make it show like a video
     success, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
