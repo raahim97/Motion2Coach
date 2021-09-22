@@ -40,16 +40,17 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         print("###################################################################")
         print("-------------------------------------------------------------------")
         print("Right Shoulder")
+        # print('landmark', results.pose_landmarks.landmark[12].x)
         right = dict(enumerate(results.pose_landmarks.landmark))[12]
         print(right, type(right))
         print("-------------------------------------------------------------------")
         print("Left Shoulder")
         left = dict(enumerate(results.pose_landmarks.landmark))[11]
-        print(left, type(left))
+
         print("-------------------------------------------------------------------")
         # Need to do this
-        # distanceBTW = distance(right['x'], right['y'], right['z'], left['x'], left['y'],left['z'])  # Passing Coordinated
-        # print("Distance between Left and Right Shoulder is :" + distanceBTW)
+        distanceBTW = distance(right.x, right.y, right.z, left.x, left.y, left.z)  # Passing Coordinated
+        print(f"Distance between Left and Right Shoulder is : {distanceBTW}")
         print("-------------------------------------------------------------------")
         print("###################################################################")
         # --------------------------------------------------------------------------
