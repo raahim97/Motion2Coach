@@ -10,8 +10,8 @@ mpPose = mp.solutions.pose
 pose = mpPose.Pose()
 pTime = 0
 # ---------------------------------------------------------------------------------
-cap = cv2.VideoCapture('walking.mp4')  # Processing on walking.mp4
-# cap = cv2.VideoCapture(0)  # Reading from Camera
+# cap = cv2.VideoCapture('walking.mp4')  # Processing on walking.mp4
+cap = cv2.VideoCapture(0)  # Reading from Camera
 # ---------------------------------------------------------------------------------
 if cap is None or not cap.isOpened():  # Check if camera does not found
     print("No Camera found")
@@ -47,6 +47,7 @@ while True:  # Infinite loop, read image every second to make it show like a vid
         left = dict(enumerate(results.pose_landmarks.landmark))[11]
         print(left, type(left))
         print("-------------------------------------------------------------------")
+        # Need to do this
         # distanceBTW = distance(right['x'], right['y'], right['z'], left['x'], left['y'],left['z'])  # Passing Coordinated
         # print("Distance between Left and Right Shoulder is :" + distanceBTW)
         print("-------------------------------------------------------------------")
